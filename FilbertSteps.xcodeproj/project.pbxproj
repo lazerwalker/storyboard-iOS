@@ -12,6 +12,9 @@
 		C6A702151C31D32F0055C7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A702131C31D32F0055C7F9 /* Main.storyboard */; };
 		C6A702171C31D32F0055C7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A702161C31D32F0055C7F9 /* Assets.xcassets */; };
 		C6A7021A1C31D32F0055C7F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A702181C31D32F0055C7F9 /* LaunchScreen.storyboard */; };
+		C6A702221C325EB90055C7F9 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A702211C325EB90055C7F9 /* Game.swift */; };
+		C6A702241C325F4E0055C7F9 /* dist.js in Resources */ = {isa = PBXBuildFile; fileRef = C6A702231C325F4E0055C7F9 /* dist.js */; };
+		C6A702261C3262270055C7F9 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = C6A702251C3262270055C7F9 /* data.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		C6A702161C31D32F0055C7F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6A702191C31D32F0055C7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6A7021B1C31D32F0055C7F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6A702211C325EB90055C7F9 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		C6A702231C325F4E0055C7F9 /* dist.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = dist.js; path = ../../dist.js; sourceTree = "<group>"; };
+		C6A702251C3262270055C7F9 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = data.json; path = ../../data.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +60,15 @@
 		C6A7020E1C31D32F0055C7F9 /* FilbertSteps */ = {
 			isa = PBXGroup;
 			children = (
+				C6A702231C325F4E0055C7F9 /* dist.js */,
+				C6A702251C3262270055C7F9 /* data.json */,
 				C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */,
 				C6A702111C31D32F0055C7F9 /* ViewController.swift */,
 				C6A702131C31D32F0055C7F9 /* Main.storyboard */,
 				C6A702161C31D32F0055C7F9 /* Assets.xcassets */,
 				C6A702181C31D32F0055C7F9 /* LaunchScreen.storyboard */,
 				C6A7021B1C31D32F0055C7F9 /* Info.plist */,
+				C6A702211C325EB90055C7F9 /* Game.swift */,
 			);
 			path = FilbertSteps;
 			sourceTree = "<group>";
@@ -124,6 +133,8 @@
 			files = (
 				C6A7021A1C31D32F0055C7F9 /* LaunchScreen.storyboard in Resources */,
 				C6A702171C31D32F0055C7F9 /* Assets.xcassets in Resources */,
+				C6A702241C325F4E0055C7F9 /* dist.js in Resources */,
+				C6A702261C3262270055C7F9 /* data.json in Resources */,
 				C6A702151C31D32F0055C7F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A702121C31D32F0055C7F9 /* ViewController.swift in Sources */,
+				C6A702221C325EB90055C7F9 /* Game.swift in Sources */,
 				C6A702101C31D32F0055C7F9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,6 +296,7 @@
 				C6A702201C31D32F0055C7F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
