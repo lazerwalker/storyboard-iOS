@@ -39,8 +39,21 @@ class Game {
 
         context.setObject(json, forKeyedSubscript: "json")
         context.evaluateScript("var data = JSON.parse(json)")
-        context.evaluateScript("var game = new Game.default(data)")
-        context.evaluateScript("game.addOutput('audio', function(a, b) { console.log(a, b) })");
+        context.evaluateScript("var game = new Game(data)")
+    }
+
+    func start() {
         context.evaluateScript("game.start()")
+    }
+
+    func addOutput(type:String, callback:(String, String) -> Void) {
+        let fn : @convention(block) (String, String) -> Void = { string1, string2 in
+            callback(string1, string2)
+        }
+
+        context.setObject(type, forKeyedSubscript: "type");
+        context.setObject(unsafeBitCast(fn, AnyObject.self), forKeyedSubscript: "fn");
+
+        context.evaluateScript("game.addOutput(type, fn)");
     }
 }

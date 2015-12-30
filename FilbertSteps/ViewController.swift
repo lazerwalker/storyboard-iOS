@@ -14,6 +14,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let game = Game()
+        game.addOutput("audio") { (content, passageId) in
+            print("\(passageId): \"\(content)\"")
+        }
+        game.start()
     }
 
     override func didReceiveMemoryWarning() {
