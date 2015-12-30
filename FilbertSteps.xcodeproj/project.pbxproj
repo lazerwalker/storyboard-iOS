@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C632DF511C347031005A33BF /* ProximitySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C632DF501C347031005A33BF /* ProximitySensor.swift */; };
 		C6A702101C31D32F0055C7F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */; };
 		C6A702121C31D32F0055C7F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A702111C31D32F0055C7F9 /* ViewController.swift */; };
 		C6A702151C31D32F0055C7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A702131C31D32F0055C7F9 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C632DF501C347031005A33BF /* ProximitySensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximitySensor.swift; sourceTree = "<group>"; };
 		C6A7020C1C31D32F0055C7F9 /* FilbertSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilbertSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A702111C31D32F0055C7F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				C6A702181C31D32F0055C7F9 /* LaunchScreen.storyboard */,
 				C6A7021B1C31D32F0055C7F9 /* Info.plist */,
 				C6A702211C325EB90055C7F9 /* Game.swift */,
+				C632DF501C347031005A33BF /* ProximitySensor.swift */,
 			);
 			path = FilbertSteps;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				C6A702121C31D32F0055C7F9 /* ViewController.swift in Sources */,
 				C6A702221C325EB90055C7F9 /* Game.swift in Sources */,
 				C6A702101C31D32F0055C7F9 /* AppDelegate.swift in Sources */,
+				C632DF511C347031005A33BF /* ProximitySensor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,9 @@ class ViewController: UIViewController {
             print("\(passageId): \"\(content)\"")
         }
         game.start()
+
+        let proximity = ProximitySensor()
+        print(proximity)
     }
 
     override func didReceiveMemoryWarning() {
