@@ -56,4 +56,9 @@ class Game {
 
         context.evaluateScript("game.addOutput(type, fn)");
     }
+
+    func completePassage(passageId:String) {
+        context.setObject(passageId, forKeyedSubscript: "passageId")
+        context.evaluateScript("game.completePassage(passageId)")
+    }
 }

@@ -7,16 +7,29 @@
 //
 
 import UIKit
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
+    let synthesizer = AVSpeechSynthesizer()
+
+    var game:Game?
+    var activePassageId:String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        synthesizer.delegate = self
+
         let game = Game()
+
         game.addOutput("audio") { (content, passageId) in
+            let utterance = AVSpeechUtterance(string: content)
+            self.synthesizer.speakUtterance(utterance)
+            self.activePassageId = passageId
             print("\(passageId): \"\(content)\"")
         }
+
+        self.game = game
         game.start()
 
         let proximity = ProximitySensor(threshold: 2)
@@ -24,8 +37,6 @@ class ViewController: UIViewController {
             print(value)
         }
         proximity.startMonitoringProximity()
-
-        print(proximity)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +44,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //-
+    // AVSpeechSynthesizerDelegate
 
+    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+        print("Finished speaking")
+        if let passageId = activePassageId, game = self.game {
+            game.completePassage(passageId)
+        }
+    }
 }
 
