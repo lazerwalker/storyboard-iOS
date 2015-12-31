@@ -19,7 +19,12 @@ class ViewController: UIViewController {
         }
         game.start()
 
-        let proximity = ProximitySensor()
+        let proximity = ProximitySensor(threshold: 2)
+        proximity.onChange { value in
+            print(value)
+        }
+        proximity.startMonitoringProximity()
+
         print(proximity)
     }
 
