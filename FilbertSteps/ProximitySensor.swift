@@ -2,7 +2,6 @@ import Foundation
 import UIKit
 
 class ProximitySensor:NSObject {
-    private var kvoContext: UInt8 = 1
     private var device = UIDevice.currentDevice()
 
     let threshold:NSTimeInterval

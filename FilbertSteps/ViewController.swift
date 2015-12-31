@@ -29,6 +29,9 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
             print("\(passageId): \"\(content)\"")
         }
 
+        let device = DeviceIdentifier()
+        device.deviceColor()
+        
         self.game = game
         game.start()
 
