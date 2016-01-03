@@ -15,6 +15,8 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var game:Game?
     var activePassageId:String?
 
+    let phones = HeadphoneSensor()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,11 +42,10 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
             print(value)
         }
         proximity.startMonitoringProximity()
-    }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        phones.onChange { (value) -> Void in
+            print("HEADPHONES: \(value)")
+        }
     }
 
     //-
