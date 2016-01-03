@@ -15,8 +15,6 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
     var game:Game?
     var activePassageId:String?
 
-    let phones = HeadphoneSensor()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,20 +29,17 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
             print("\(passageId): \"\(content)\"")
         }
 
+        game.addInputs([
+            "proximity": ProximitySensor(threshold: 2),
+            "headphones": HeadphoneSensor()
+        ])
+
         let device = DeviceIdentifier()
         device.deviceColor()
         
         self.game = game
         game.start()
 
-        let proximity = ProximitySensor(threshold: 2)
-        proximity.onChange { value in
-            print(value)
-        }
-
-        phones.onChange { (value) -> Void in
-            print("HEADPHONES: \(value)")
-        }
     }
 
     //-

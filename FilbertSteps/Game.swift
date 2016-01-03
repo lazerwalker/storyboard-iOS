@@ -4,6 +4,8 @@ import JavaScriptCore
 class Game {
     let context = JSContext()
 
+    var inputs:[SensorInput] = []
+
     init() {
         let log: @convention(block) (String) -> Void = { string1 in
             print("log:\(string1)")
@@ -55,6 +57,23 @@ class Game {
         context.setObject(unsafeBitCast(fn, AnyObject.self), forKeyedSubscript: "fn");
 
         context.evaluateScript("game.addOutput(type, fn)");
+    }
+
+    func addInput(type:String, sensor:SensorInput) {
+        sensor.onChange { (value) -> Void in
+            print("\(type): \"\(value)\"")
+            self.context.setObject(value, forKeyedSubscript: "input")
+            self.context.setObject(type, forKeyedSubscript: "sensor")
+            self.context.evaluateScript("game.receiveInput(sensor, input)")
+        }
+
+        inputs.append(sensor)
+    }
+
+    func addInputs(inputs:[String:SensorInput]) {
+        inputs.forEach { (type, sensor) -> () in
+            self.addInput(type, sensor: sensor)
+        }
     }
 
     func completePassage(passageId:String) {

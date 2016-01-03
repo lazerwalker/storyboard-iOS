@@ -2,8 +2,6 @@ import Foundation
 import UIKit
 
 class ProximitySensor: NSObject, SensorInput {
-    typealias InputType = Bool
-
     private var device = UIDevice.currentDevice()
 
     let threshold:NSTimeInterval
@@ -12,7 +10,7 @@ class ProximitySensor: NSObject, SensorInput {
 
     var previousState = false
     var hasTriggered = false
-    var callback:((Bool) -> Void)?
+    var callback:((AnyObject) -> Void)?
     var startTime:NSDate = NSDate()
 
     init(threshold:NSTimeInterval = 2) {
@@ -37,7 +35,7 @@ class ProximitySensor: NSObject, SensorInput {
         timer.invalidate()
     }
 
-    func onChange(cb:(value:Bool) -> Void) {
+    func onChange(cb:(value:AnyObject) -> Void) {
         callback = cb
         checkProximity()
     }

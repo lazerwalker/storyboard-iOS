@@ -2,11 +2,10 @@ import Foundation
 import AVFoundation
 
 class HeadphoneSensor: SensorInput {
-    typealias InputType = Bool
-
+   
     let session = AVAudioSession.sharedInstance()
 
-    var callback:((Bool) -> Void)?
+    var callback:((AnyObject) -> Void)?
 
     init() {
         NSNotificationCenter.defaultCenter().addObserver(
@@ -18,7 +17,7 @@ class HeadphoneSensor: SensorInput {
         checkOutputs()
     }
 
-    func onChange(cb:(value:Bool) -> Void) {
+    func onChange(cb:(value:AnyObject) -> Void) {
         callback = cb
         checkOutputs()
     }
