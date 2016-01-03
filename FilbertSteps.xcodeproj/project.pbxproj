@@ -11,6 +11,7 @@
 		C61B23FF1C35C88200C820BC /* UIDeviceHardware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */; };
 		C61B24011C38BF7D00C820BC /* HeadphoneSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */; };
 		C61B24031C38C66C00C820BC /* SensorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24021C38C66B00C820BC /* SensorInput.swift */; };
+		C61B24061C38E27400C820BC /* Altimeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24051C38E27400C820BC /* Altimeter.swift */; };
 		C632DF511C347031005A33BF /* ProximitySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C632DF501C347031005A33BF /* ProximitySensor.swift */; };
 		C6A702101C31D32F0055C7F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */; };
 		C6A702121C31D32F0055C7F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A702111C31D32F0055C7F9 /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 		C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceHardware.swift; sourceTree = "<group>"; };
 		C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadphoneSensor.swift; sourceTree = "<group>"; };
 		C61B24021C38C66B00C820BC /* SensorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorInput.swift; path = ../SensorInput.swift; sourceTree = "<group>"; };
+		C61B24051C38E27400C820BC /* Altimeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Altimeter.swift; sourceTree = "<group>"; };
 		C632DF501C347031005A33BF /* ProximitySensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximitySensor.swift; sourceTree = "<group>"; };
 		C6A7020C1C31D32F0055C7F9 /* FilbertSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilbertSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */,
 				C632DF501C347031005A33BF /* ProximitySensor.swift */,
+				C61B24051C38E27400C820BC /* Altimeter.swift */,
 			);
 			name = SensorInputs;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			files = (
 				C61B23FD1C35C50C00C820BC /* DeviceIdentifier.swift in Sources */,
 				C6A702121C31D32F0055C7F9 /* ViewController.swift in Sources */,
+				C61B24061C38E27400C820BC /* Altimeter.swift in Sources */,
 				C6A702221C325EB90055C7F9 /* Game.swift in Sources */,
 				C61B23FF1C35C88200C820BC /* UIDeviceHardware.swift in Sources */,
 				C6A702101C31D32F0055C7F9 /* AppDelegate.swift in Sources */,

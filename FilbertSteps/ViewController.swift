@@ -31,7 +31,8 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
         game.addInputs([
             "proximity": ProximitySensor(threshold: 2),
-            "headphones": HeadphoneSensor()
+            "headphones": HeadphoneSensor(),
+            "altimeter": Altimeter()
         ])
 
         let device = DeviceIdentifier()
