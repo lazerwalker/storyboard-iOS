@@ -41,7 +41,6 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
         proximity.onChange { value in
             print(value)
         }
-        proximity.startMonitoringProximity()
 
         phones.onChange { (value) -> Void in
             print("HEADPHONES: \(value)")

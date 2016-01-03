@@ -19,6 +19,11 @@ class ProximitySensor: NSObject, SensorInput {
         self.threshold = threshold
 
         super.init()
+
+        // TODO: We probably want to have startMonitoringProximity be a thing that
+        // the dev manually enables, but I haven't thought through what that looks
+        // like yet
+        startMonitoringProximity()
     }
 
     func startMonitoringProximity() {
