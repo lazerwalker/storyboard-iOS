@@ -9,11 +9,13 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
+class ViewController: UIViewController, AVSpeechSynthesizerDelegate, AVAudioPlayerDelegate {
     let synthesizer = AVSpeechSynthesizer()
 
     var game:Game?
     var activePassageId:String?
+
+    var audioPlayers:[AVAudioPlayer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +24,30 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
 
         let game = Game()
 
-        game.addOutput("audio") { (content, passageId) in
-            let utterance = AVSpeechUtterance(string: content)
-            self.synthesizer.speakUtterance(utterance)
-            self.activePassageId = passageId
+        game.addOutput("textToSpeech") { (content, passageId) in
+//            let utterance = AVSpeechUtterance(string: content)
+//            self.synthesizer.speakUtterance(utterance)
+//            self.activePassageId = passageId
             print("\(passageId): \"\(content)\"")
+            game.completePassage(passageId)
+        }
+
+        game.addOutput("mp3") { (content, passageId) -> Void in
+            let pathString = NSBundle.mainBundle().pathForResource(content, ofType: "mp3")
+            if let pathString = pathString {
+                let url = NSURL(fileURLWithPath: pathString)
+                print(url)
+                do {
+                    let player = try AVAudioPlayer(contentsOfURL: url)
+                    player.delegate = self
+                    self.activePassageId = passageId
+                    player.prepareToPlay()
+                    print(player.play())
+                    self.audioPlayers.append(player)
+                } catch {
+                    print("TODO: Error handling")
+                }
+            }
         }
 
         game.addInputs([
@@ -51,6 +72,20 @@ class ViewController: UIViewController, AVSpeechSynthesizerDelegate {
         if let passageId = activePassageId, game = self.game {
             game.completePassage(passageId)
         }
+    }
+
+    // -
+    // AVAudioPlayerDelegate
+    func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+        print("Decode error \(error)")
+    }
+
+    func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+        print("Finished playing file")
+        if let passageId = activePassageId, game = self.game {
+            game.completePassage(passageId)
+        }
+        audioPlayers.removeAtIndex(audioPlayers.indexOf(player)!)
     }
 }
 

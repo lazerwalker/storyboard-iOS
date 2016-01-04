@@ -12,6 +12,8 @@
 		C61B24011C38BF7D00C820BC /* HeadphoneSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */; };
 		C61B24031C38C66C00C820BC /* SensorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24021C38C66B00C820BC /* SensorInput.swift */; };
 		C61B24061C38E27400C820BC /* Altimeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24051C38E27400C820BC /* Altimeter.swift */; };
+		C61B240E1C3B168900C820BC /* audio1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C61B240C1C3B168900C820BC /* audio1.mp3 */; };
+		C61B240F1C3B168900C820BC /* audio2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C61B240D1C3B168900C820BC /* audio2.mp3 */; };
 		C632DF511C347031005A33BF /* ProximitySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C632DF501C347031005A33BF /* ProximitySensor.swift */; };
 		C6A702101C31D32F0055C7F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */; };
 		C6A702121C31D32F0055C7F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A702111C31D32F0055C7F9 /* ViewController.swift */; };
@@ -29,6 +31,8 @@
 		C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadphoneSensor.swift; sourceTree = "<group>"; };
 		C61B24021C38C66B00C820BC /* SensorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SensorInput.swift; path = ../SensorInput.swift; sourceTree = "<group>"; };
 		C61B24051C38E27400C820BC /* Altimeter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Altimeter.swift; sourceTree = "<group>"; };
+		C61B240C1C3B168900C820BC /* audio1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio1.mp3; sourceTree = "<group>"; };
+		C61B240D1C3B168900C820BC /* audio2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio2.mp3; sourceTree = "<group>"; };
 		C632DF501C347031005A33BF /* ProximitySensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximitySensor.swift; sourceTree = "<group>"; };
 		C6A7020C1C31D32F0055C7F9 /* FilbertSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilbertSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,15 @@
 			name = SensorInputs;
 			sourceTree = "<group>";
 		};
+		C61B24071C3B14EB00C820BC /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				C61B240C1C3B168900C820BC /* audio1.mp3 */,
+				C61B240D1C3B168900C820BC /* audio2.mp3 */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
 		C6A702031C31D32F0055C7F9 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 		C6A7020E1C31D32F0055C7F9 /* FilbertSteps */ = {
 			isa = PBXGroup;
 			children = (
+				C61B24071C3B14EB00C820BC /* audio */,
 				C61B24021C38C66B00C820BC /* SensorInput.swift */,
 				C61B24041C38C69E00C820BC /* SensorInputs */,
 				C6A702231C325F4E0055C7F9 /* dist.js */,
@@ -158,9 +172,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6A7021A1C31D32F0055C7F9 /* LaunchScreen.storyboard in Resources */,
+				C61B240E1C3B168900C820BC /* audio1.mp3 in Resources */,
 				C6A702171C31D32F0055C7F9 /* Assets.xcassets in Resources */,
 				C6A702241C325F4E0055C7F9 /* dist.js in Resources */,
 				C6A702261C3262270055C7F9 /* data.json in Resources */,
+				C61B240F1C3B168900C820BC /* audio2.mp3 in Resources */,
 				C6A702151C31D32F0055C7F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,7 +2,6 @@ import Foundation
 import AVFoundation
 
 class HeadphoneSensor: SensorInput {
-   
     let session = AVAudioSession.sharedInstance()
 
     var callback:((AnyObject) -> Void)?
