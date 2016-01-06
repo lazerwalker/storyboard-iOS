@@ -1,8 +1,12 @@
 import Foundation
 import UIKit
 
-struct DeviceIdentifier {
+struct DeviceSensor : SensorInput {
     private var device = UIDevice.currentDevice()
+
+    func onChange(cb: (value: AnyObject) -> Void) {
+        cb(value: device.modelName)
+    }
 
     func deviceColor() {
         var selector:Selector = "deviceInfoForKey:"
