@@ -5,6 +5,7 @@ class Game {
     let context = JSContext()
 
     var inputs:[SensorInput] = []
+    var outputs:[Output] = []
 
     init() {
         let log: @convention(block) (String) -> Void = { string1 in
@@ -48,15 +49,19 @@ class Game {
         context.evaluateScript("game.start()")
     }
 
-    func addOutput(type:String, callback:(String, String) -> Void) {
-        let fn : @convention(block) (String, String) -> Void = { string1, string2 in
-            callback(string1, string2)
+    func addOutput(type:String, output:Output) {
+        let fn : @convention(block) (String, String) -> Void = { content, passageId in
+            let callback = {
+                self.completePassage(passageId)
+            }
+            output.play(content, completionHandler:callback)
         }
 
         context.setObject(type, forKeyedSubscript: "type");
         context.setObject(unsafeBitCast(fn, AnyObject.self), forKeyedSubscript: "fn");
-
         context.evaluateScript("game.addOutput(type, fn)");
+
+        outputs.append(output)
     }
 
     func addInput(type:String, sensor:SensorInput) {
@@ -73,6 +78,12 @@ class Game {
     func addInputs(inputs:[String:SensorInput]) {
         inputs.forEach { (type, sensor) -> () in
             self.addInput(type, sensor: sensor)
+        }
+    }
+
+    func addOutputs(outputs:[String:Output]) {
+        outputs.forEach { (type, output) -> () in
+            self.addOutput(type, output: output)
         }
     }
 
