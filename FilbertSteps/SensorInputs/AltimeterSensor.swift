@@ -1,7 +1,7 @@
 import Foundation
 import CoreMotion
 
-class Altimeter : SensorInput {
+class AltimeterSensor : SensorInput {
     let altimeter = CMAltimeter()
 
     var callback:((AnyObject) -> Void)?

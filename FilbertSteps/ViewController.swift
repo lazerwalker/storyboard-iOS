@@ -28,7 +28,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         game.addInputs([
             "proximity": ProximitySensor(threshold: 2),
             "headphones": HeadphoneSensor(),
-            "altimeter": Altimeter()
+            "altimeter": AltimeterSensor()
         ])
 
         let device = DeviceIdentifier()
