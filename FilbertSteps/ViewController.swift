@@ -21,7 +21,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
         let game = Game()
 
         game.addOutputs([
-            "textToSpeech": TextToSpeechOutput(),
+            "speech": TextToSpeechOutput(),
             "mp3": AudioOutput()
         ])
 
