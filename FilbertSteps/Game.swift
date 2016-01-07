@@ -2,10 +2,12 @@ import Foundation
 import JavaScriptCore
 
 class Game {
-    let context = JSContext()
+    private let context = JSContext()
 
     var inputs:[SensorInput] = []
     var outputs:[Output] = []
+
+    var onStateUpdate: ((String) -> Void)?
 
     init() {
         let log: @convention(block) (String) -> Void = { string1 in
@@ -18,8 +20,15 @@ class Game {
             }
         }
 
+        let stateUpdated: @convention(block) (String) -> Void = { state in
+            if let cb = self.onStateUpdate {
+                cb(state as String)
+            }
+        }
+
         context.objectForKeyedSubscript("console").setObject(unsafeBitCast(log, AnyObject.self), forKeyedSubscript: "log");
         context.setObject(unsafeBitCast(setTimeout, AnyObject.self), forKeyedSubscript: "setTimeout")
+        context.setObject(unsafeBitCast(stateUpdated, AnyObject.self), forKeyedSubscript: "stateUpdated")
 
         let path = NSBundle.mainBundle().pathForResource("dist", ofType: "js")
         var gameString = ""
@@ -43,6 +52,7 @@ class Game {
         context.setObject(json, forKeyedSubscript: "json")
         context.evaluateScript("var data = JSON.parse(json)")
         context.evaluateScript("var game = new Game(data)")
+        context.evaluateScript("game.stateListener = stateUpdated")
     }
 
     func start() {

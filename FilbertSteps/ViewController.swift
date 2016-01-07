@@ -10,6 +10,8 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
+    @IBOutlet weak var stateLabel:UILabel?
+
     var game:Game?
     var activePassageId:String?
 
@@ -25,6 +27,14 @@ class ViewController: UIViewController {
         }
 
         let game = Game()
+
+        game.onStateUpdate = { state in
+            print(state)
+            if let stateLabel = self.stateLabel {
+                stateLabel.text = state
+                stateLabel.sizeToFit()
+            }
+        }
 
         game.addOutputs([
             "speech": TextToSpeechOutput(),
