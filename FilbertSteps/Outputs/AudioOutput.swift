@@ -7,9 +7,9 @@ class AudioOutput : NSObject, Output, AVAudioPlayerDelegate {
 
     var audioPlayers:[AVAudioPlayer] =  []
 
-    var completionHandler:((Void) -> Void)?
+    var completionHandler:OutputCompletionBlock?
 
-    func play(content: String, completionHandler: (Void) -> Void) {
+    func play(content: String, completionHandler: OutputCompletionBlock) {
         self.completionHandler = completionHandler
 
         let pathString = NSBundle.mainBundle().pathForResource(content, ofType: "mp3")

@@ -1,5 +1,7 @@
 import Foundation
 
+typealias OutputCompletionBlock = (Void) -> Void
+
 protocol Output {
     /**
      * content: The string of actual output content
@@ -8,5 +10,5 @@ protocol Output {
      * completed: A callback to call when the output is finished
      * TODO: It should probably take in a success boolean and/or error object
     */
-    func play(content:String, completionHandler:(Void) -> Void)
+    func play(content:String, completionHandler:OutputCompletionBlock)
 }

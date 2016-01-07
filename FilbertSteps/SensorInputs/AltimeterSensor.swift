@@ -4,7 +4,7 @@ import CoreMotion
 class AltimeterSensor : SensorInput {
     let altimeter = CMAltimeter()
 
-    var callback:((AnyObject) -> Void)?
+    var callback:SensorInputBlock?
 
     init() {
         // TODO: Manually manage a queue?
@@ -17,7 +17,7 @@ class AltimeterSensor : SensorInput {
         }
     }
 
-    func onChange(cb: (value: AnyObject) -> Void) {
+    func onChange(cb: SensorInputBlock) {
         callback = cb
     }
 }

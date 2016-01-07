@@ -11,7 +11,7 @@ class Game {
 
     var onStateUpdate: StateUpdateBlock?
 
-    init(inputs:[String:SensorInput], outputs:[String:Output], onStateUpdate:((String) -> Void)?) {
+    init(inputs:[String:SensorInput], outputs:[String:Output], onStateUpdate:StateUpdateBlock?) {
         self.inputs = Array(inputs.values)
         self.outputs = Array(outputs.values)
         self.onStateUpdate = onStateUpdate

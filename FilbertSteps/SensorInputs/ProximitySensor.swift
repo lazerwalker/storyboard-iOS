@@ -35,14 +35,14 @@ class ProximitySensor: NSObject, SensorInput {
         timer.invalidate()
     }
 
-    func onChange(cb:(value:AnyObject) -> Void) {
+    func onChange(cb:SensorInputBlock) {
         callback = cb
 
         if (device.proximityState) {
-            cb(value: true)
+            cb(true)
             self.previousState = true
         } else {
-            cb(value: false)
+            cb(false)
         }
         checkProximity()
     }

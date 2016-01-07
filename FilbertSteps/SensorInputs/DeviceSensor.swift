@@ -4,8 +4,8 @@ import UIKit
 struct DeviceSensor : SensorInput {
     private var device = UIDevice.currentDevice()
 
-    func onChange(cb: (value: AnyObject) -> Void) {
-        cb(value: device.modelName)
+    func onChange(cb:SensorInputBlock) {
+        cb(device.modelName)
     }
 
     func deviceColor() {

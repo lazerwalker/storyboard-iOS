@@ -7,14 +7,14 @@ class TextToSpeechOutput : NSObject, Output, AVSpeechSynthesizerDelegate {
 
     let synthesizer = AVSpeechSynthesizer()
 
-    var completionHandler:((Void) -> Void)?
+    var completionHandler: OutputCompletionBlock?
 
     override init() {
         super.init()
         synthesizer.delegate = self
     }
 
-    func play(content: String, completionHandler: (Void) -> Void) {
+    func play(content: String, completionHandler: OutputCompletionBlock) {
         self.completionHandler = completionHandler
 
         let utterance = AVSpeechUtterance(string: content)
