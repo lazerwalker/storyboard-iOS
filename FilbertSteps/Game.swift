@@ -1,15 +1,21 @@
 import Foundation
 import JavaScriptCore
 
+typealias StateUpdateBlock = (String) -> Void
+
 class Game {
     private let context = JSContext()
 
-    var inputs:[SensorInput] = []
-    var outputs:[Output] = []
+    let inputs:[SensorInput]
+    let outputs:[Output]
 
-    var onStateUpdate: ((String) -> Void)?
+    var onStateUpdate: StateUpdateBlock?
 
-    init() {
+    init(inputs:[String:SensorInput], outputs:[String:Output], onStateUpdate:((String) -> Void)?) {
+        self.inputs = Array(inputs.values)
+        self.outputs = Array(outputs.values)
+        self.onStateUpdate = onStateUpdate
+
         let log: @convention(block) (String) -> Void = { string1 in
             print("log:\(string1)")
         }
@@ -52,14 +58,23 @@ class Game {
         context.setObject(json, forKeyedSubscript: "json")
         context.evaluateScript("var data = JSON.parse(json)")
         context.evaluateScript("var game = new Game(data)")
+
         context.evaluateScript("game.stateListener = stateUpdated")
+        inputs.forEach({ addInput($0, sensor: $1) })
+        outputs.forEach({ addOutput($0, output: $1) })
     }
 
     func start() {
         context.evaluateScript("game.start()")
     }
 
-    func addOutput(type:String, output:Output) {
+    func completePassage(passageId:String) {
+        context.setObject(passageId, forKeyedSubscript: "passageId")
+        context.evaluateScript("game.completePassage(passageId)")
+    }
+
+    //-
+    private func addOutput(type:String, output:Output) {
         let fn : @convention(block) (String, String) -> Void = { content, passageId in
             let callback = {
                 self.completePassage(passageId)
@@ -70,35 +85,15 @@ class Game {
         context.setObject(type, forKeyedSubscript: "type");
         context.setObject(unsafeBitCast(fn, AnyObject.self), forKeyedSubscript: "fn");
         context.evaluateScript("game.addOutput(type, fn)");
-
-        outputs.append(output)
     }
 
-    func addInput(type:String, sensor:SensorInput) {
+    private func addInput(type:String, sensor:SensorInput) {
         sensor.onChange { (value) -> Void in
             print("\(type): \"\(value)\"")
             self.context.setObject(value, forKeyedSubscript: "input")
             self.context.setObject(type, forKeyedSubscript: "sensor")
             self.context.evaluateScript("game.receiveInput(sensor, input)")
         }
-
-        inputs.append(sensor)
     }
 
-    func addInputs(inputs:[String:SensorInput]) {
-        inputs.forEach { (type, sensor) -> () in
-            self.addInput(type, sensor: sensor)
-        }
-    }
-
-    func addOutputs(outputs:[String:Output]) {
-        outputs.forEach { (type, output) -> () in
-            self.addOutput(type, output: output)
-        }
-    }
-
-    func completePassage(passageId:String) {
-        context.setObject(passageId, forKeyedSubscript: "passageId")
-        context.evaluateScript("game.completePassage(passageId)")
-    }
 }

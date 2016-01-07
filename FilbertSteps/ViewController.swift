@@ -26,9 +26,19 @@ class ViewController: UIViewController {
             print("Error initializing audio session")
         }
 
-        let game = Game()
+        let inputs:[String:SensorInput] = [
+            "proximity": ProximitySensor(threshold: 2),
+            "headphones": HeadphoneSensor(),
+            "altimeter": AltimeterSensor(),
+            "device": DeviceSensor()
+        ]
 
-        game.onStateUpdate = { state in
+        let outputs:[String:Output] = [
+            "speech": TextToSpeechOutput(),
+            "mp3": AudioOutput()
+        ]
+
+        let onStateUpdate:StateUpdateBlock = { state in
             print(state)
             if let stateLabel = self.stateLabel {
                 stateLabel.text = state
@@ -36,18 +46,7 @@ class ViewController: UIViewController {
             }
         }
 
-        game.addOutputs([
-            "speech": TextToSpeechOutput(),
-            "mp3": AudioOutput()
-        ])
-
-        game.addInputs([
-            "proximity": ProximitySensor(threshold: 2),
-            "headphones": HeadphoneSensor(),
-            "altimeter": AltimeterSensor(),
-            "device": DeviceSensor()
-        ])
-
+        let game = Game(inputs: inputs, outputs: outputs, onStateUpdate: onStateUpdate)
         self.game = game
         game.start()
     }
