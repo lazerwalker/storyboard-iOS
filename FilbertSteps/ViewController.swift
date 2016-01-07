@@ -16,6 +16,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let audioSession = AVAudioSession.sharedInstance()
+        do {
+            try audioSession.setCategory(AVAudioSessionCategoryPlayback)
+            try audioSession.setMode(AVAudioSessionModeSpokenAudio)
+        } catch {
+            print("Error initializing audio session")
+        }
+
         let game = Game()
 
         game.addOutputs([
