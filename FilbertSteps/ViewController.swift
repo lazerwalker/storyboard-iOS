@@ -9,9 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, AVAudioPlayerDelegate {
-    let synthesizer = AVSpeechSynthesizer()
-
+class ViewController: UIViewController {
     var game:Game?
     var activePassageId:String?
 
