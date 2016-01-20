@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         let inputs:[String:SensorInput] = [
             "proximity": ProximitySensor(threshold: 2),
             "headphones": HeadphoneSensor(),
-            "altimeter": AltimeterSensor(),
+            "altitude": AltimeterSensor(),
             "device": DeviceSensor()
         ]
 
