@@ -39,7 +39,6 @@ class ViewController: UIViewController {
         ]
 
         let onStateUpdate:StateUpdateBlock = { state in
-            print(state)
             if let stateLabel = self.stateLabel {
                 stateLabel.text = state
                 stateLabel.sizeToFit()
