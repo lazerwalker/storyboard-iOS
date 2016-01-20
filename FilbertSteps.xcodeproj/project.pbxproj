@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C60FE48C1C50191B009CBA57 /* SoWhat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C60FE48B1C50191B009CBA57 /* SoWhat.mp3 */; };
 		C61B23FD1C35C50C00C820BC /* DeviceSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B23FC1C35C50C00C820BC /* DeviceSensor.swift */; };
 		C61B23FF1C35C88200C820BC /* UIDeviceHardware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */; };
 		C61B24011C38BF7D00C820BC /* HeadphoneSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C60FE48B1C50191B009CBA57 /* SoWhat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SoWhat.mp3; sourceTree = "<group>"; };
 		C61B23FC1C35C50C00C820BC /* DeviceSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSensor.swift; sourceTree = "<group>"; };
 		C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceHardware.swift; sourceTree = "<group>"; };
 		C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadphoneSensor.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		C61B24071C3B14EB00C820BC /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				C60FE48B1C50191B009CBA57 /* SoWhat.mp3 */,
 				C61B240C1C3B168900C820BC /* audio1.mp3 */,
 				C61B240D1C3B168900C820BC /* audio2.mp3 */,
 			);
@@ -199,6 +202,7 @@
 				C6A702241C325F4E0055C7F9 /* dist.js in Resources */,
 				C6A702261C3262270055C7F9 /* data.json in Resources */,
 				C61B240F1C3B168900C820BC /* audio2.mp3 in Resources */,
+				C60FE48C1C50191B009CBA57 /* SoWhat.mp3 in Resources */,
 				C6A702151C31D32F0055C7F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
