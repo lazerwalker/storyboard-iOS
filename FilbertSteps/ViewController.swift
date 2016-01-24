@@ -30,7 +30,8 @@ class ViewController: UIViewController {
             "proximity": ProximitySensor(threshold: 2),
             "headphones": HeadphoneSensor(),
             "altitude": AltimeterSensor(),
-            "device": DeviceSensor()
+            "device": DeviceSensor(),
+            "insideTheMediaLab": MediaLabSensor()
         ]
 
         let outputs:[String:Output] = [
