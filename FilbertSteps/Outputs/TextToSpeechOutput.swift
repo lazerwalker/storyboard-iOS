@@ -25,7 +25,6 @@ class TextToSpeechOutput : NSObject, Output, AVSpeechSynthesizerDelegate {
     // AVSpeechSynthesizerDelegate
 
     dynamic func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
-        print("Finished speaking")
         if let cb = completionHandler {
             cb()
         }

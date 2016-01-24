@@ -77,8 +77,10 @@ class Game {
     private func addOutput(type:String, output:Output) {
         let fn : @convention(block) (String, String) -> Void = { content, passageId in
             let callback = {
+                print("Completed \(type) passage \(passageId)")
                 self.completePassage(passageId)
             }
+            print("OUTPUT: (\(type)): \"\(content)\", \(passageId)")
             output.play(content, completionHandler:callback)
         }
 
@@ -89,7 +91,7 @@ class Game {
 
     private func addInput(type:String, sensor:SensorInput) {
         sensor.onChange { (value) -> Void in
-            print("\(type): \"\(value)\"")
+            print("INPUT: \(type): \"\(value)\"")
             self.context.setObject(value, forKeyedSubscript: "input")
             self.context.setObject(type, forKeyedSubscript: "sensor")
             self.context.evaluateScript("game.receiveInput(sensor, input)")
