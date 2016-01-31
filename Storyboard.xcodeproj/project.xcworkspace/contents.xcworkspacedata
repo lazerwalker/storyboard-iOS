@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FilbertSteps.xcodeproj">
+      location = "self:/Users/lazerwalker/Code/filbert/iOS/Storyboard.xcodeproj">
    </FileRef>
 </Workspace>

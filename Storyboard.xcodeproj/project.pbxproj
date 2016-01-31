@@ -41,7 +41,7 @@
 		C61C74DA1C5EB51200F6862F /* ProjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
 		C632DF501C347031005A33BF /* ProximitySensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximitySensor.swift; sourceTree = "<group>"; };
 		C66B23F61C55912A00DFC293 /* MediaLabSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLabSensor.swift; sourceTree = "<group>"; };
-		C6A7020C1C31D32F0055C7F9 /* FilbertSteps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FilbertSteps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A7020C1C31D32F0055C7F9 /* Storyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Storyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A702111C31D32F0055C7F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C6A702141C31D32F0055C7F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 				C61B24051C38E27400C820BC /* AltimeterSensor.swift */,
 				C61B23FC1C35C50C00C820BC /* DeviceSensor.swift */,
 				C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */,
-				C632DF501C347031005A33BF /* ProximitySensor.swift */,
 				C66B23F61C55912A00DFC293 /* MediaLabSensor.swift */,
+				C632DF501C347031005A33BF /* ProximitySensor.swift */,
 			);
 			path = SensorInputs;
 			sourceTree = "<group>";
@@ -87,21 +87,21 @@
 		C6A702031C31D32F0055C7F9 = {
 			isa = PBXGroup;
 			children = (
-				C61C74D81C5C1B9A00F6862F /* examples */,
-				C6A7020E1C31D32F0055C7F9 /* FilbertSteps */,
 				C6A7020D1C31D32F0055C7F9 /* Products */,
+				C6A7020E1C31D32F0055C7F9 /* Storyboard */,
+				C61C74D81C5C1B9A00F6862F /* examples */,
 			);
 			sourceTree = "<group>";
 		};
 		C6A7020D1C31D32F0055C7F9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C6A7020C1C31D32F0055C7F9 /* FilbertSteps.app */,
+				C6A7020C1C31D32F0055C7F9 /* Storyboard.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C6A7020E1C31D32F0055C7F9 /* FilbertSteps */ = {
+		C6A7020E1C31D32F0055C7F9 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				C61B24101C3D917B00C820BC /* Outputs */,
@@ -113,21 +113,21 @@
 				C6A702181C31D32F0055C7F9 /* LaunchScreen.storyboard */,
 				C6A702131C31D32F0055C7F9 /* Main.storyboard */,
 				C61B24111C3D918700C820BC /* Output.swift */,
+				C61C74DA1C5EB51200F6862F /* ProjectListViewController.swift */,
 				C61B24021C38C66B00C820BC /* SensorInput.swift */,
 				C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */,
 				C6A702111C31D32F0055C7F9 /* ViewController.swift */,
 				C6A702231C325F4E0055C7F9 /* dist.js */,
-				C61C74DA1C5EB51200F6862F /* ProjectListViewController.swift */,
 			);
-			path = FilbertSteps;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C6A7020B1C31D32F0055C7F9 /* FilbertSteps */ = {
+		C6A7020B1C31D32F0055C7F9 /* Storyboard */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C6A7021E1C31D32F0055C7F9 /* Build configuration list for PBXNativeTarget "FilbertSteps" */;
+			buildConfigurationList = C6A7021E1C31D32F0055C7F9 /* Build configuration list for PBXNativeTarget "Storyboard" */;
 			buildPhases = (
 				C6A702081C31D32F0055C7F9 /* Sources */,
 				C6A702091C31D32F0055C7F9 /* Frameworks */,
@@ -137,9 +137,9 @@
 			);
 			dependencies = (
 			);
-			name = FilbertSteps;
+			name = Storyboard;
 			productName = FilbertSteps;
-			productReference = C6A7020C1C31D32F0055C7F9 /* FilbertSteps.app */;
+			productReference = C6A7020C1C31D32F0055C7F9 /* Storyboard.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,7 +162,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C6A702071C31D32F0055C7F9 /* Build configuration list for PBXProject "FilbertSteps" */;
+			buildConfigurationList = C6A702071C31D32F0055C7F9 /* Build configuration list for PBXProject "Storyboard" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -175,7 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C6A7020B1C31D32F0055C7F9 /* FilbertSteps */,
+				C6A7020B1C31D32F0055C7F9 /* Storyboard */,
 			);
 		};
 /* End PBXProject section */
@@ -326,10 +326,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = FilbertSteps/Info.plist;
+				INFOPLIST_FILE = Storyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.FilbertSteps;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Storyboard;
 			};
 			name = Debug;
 		};
@@ -337,17 +337,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = FilbertSteps/Info.plist;
+				INFOPLIST_FILE = Storyboard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.FilbertSteps;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Storyboard;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C6A702071C31D32F0055C7F9 /* Build configuration list for PBXProject "FilbertSteps" */ = {
+		C6A702071C31D32F0055C7F9 /* Build configuration list for PBXProject "Storyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6A7021C1C31D32F0055C7F9 /* Debug */,
@@ -356,7 +356,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C6A7021E1C31D32F0055C7F9 /* Build configuration list for PBXNativeTarget "FilbertSteps" */ = {
+		C6A7021E1C31D32F0055C7F9 /* Build configuration list for PBXNativeTarget "Storyboard" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C6A7021F1C31D32F0055C7F9 /* Debug */,
