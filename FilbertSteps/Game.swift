@@ -68,6 +68,10 @@ class Game {
         context.evaluateScript("game.start()")
     }
 
+    func stop() {
+        self.outputs.forEach { $0.stop() }
+    }
+
     func completePassage(passageId:String) {
         context.setObject(passageId, forKeyedSubscript: "passageId")
         context.evaluateScript("game.completePassage(passageId)")

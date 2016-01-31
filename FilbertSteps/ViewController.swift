@@ -18,11 +18,13 @@ class ViewController: UIViewController {
     var projectName:String?
 
     var playButton:UIBarButtonItem?
+    var restartButton:UIBarButtonItem?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         playButton = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "start")
+        restartButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "restart")
         navigationItem.rightBarButtonItem = playButton
 
         loadProject("elevator")
@@ -62,6 +64,7 @@ class ViewController: UIViewController {
             }
         }
 
+        self.game?.stop()
         let game = Game(gameFile: projectName, inputs: inputs, outputs: outputs, onStateUpdate: onStateUpdate)
         self.game = game
     }
@@ -69,7 +72,14 @@ class ViewController: UIViewController {
     func start() {
         if let game = game {
             game.start()
-            playButton?.enabled = false
+            navigationItem.rightBarButtonItem = restartButton
+        }
+    }
+
+    func restart() {
+        if let name = projectName {
+            loadProject(name)
+            start()
         }
     }
 }

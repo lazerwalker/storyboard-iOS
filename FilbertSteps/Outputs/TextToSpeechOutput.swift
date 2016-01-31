@@ -21,6 +21,10 @@ class TextToSpeechOutput : NSObject, Output, AVSpeechSynthesizerDelegate {
         self.synthesizer.speakUtterance(utterance)
     }
 
+    func stop() {
+        self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+    }
+
     //-
     // AVSpeechSynthesizerDelegate
 

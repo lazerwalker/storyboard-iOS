@@ -11,4 +11,6 @@ protocol Output {
      * TODO: It should probably take in a success boolean and/or error object
     */
     func play(content:String, completionHandler:OutputCompletionBlock)
+
+    func stop()
 }

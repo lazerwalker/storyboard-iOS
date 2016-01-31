@@ -37,6 +37,10 @@ class AudioOutput : NSObject, Output, AVAudioPlayerDelegate {
 
     }
 
+    func stop() {
+        audioPlayers.forEach { $0.stop() }
+    }
+
     // -
     // AVAudioPlayerDelegate
     dynamic func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
