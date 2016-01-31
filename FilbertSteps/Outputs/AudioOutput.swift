@@ -8,11 +8,19 @@ class AudioOutput : NSObject, Output, AVAudioPlayerDelegate {
     var audioPlayers:[AVAudioPlayer] =  []
 
     var completionHandler:OutputCompletionBlock?
+    var project:String
+
+    init(project:String) {
+        self.project = project
+
+        super.init()
+    }
 
     func play(content: String, completionHandler: OutputCompletionBlock) {
         self.completionHandler = completionHandler
 
-        let pathString = NSBundle.mainBundle().pathForResource(content, ofType: "mp3")
+        let pathString = NSBundle.mainBundle().pathForResource(content, ofType: "mp3", inDirectory: "examples/\(project)")
+
         if let pathString = pathString {
             let url = NSURL(fileURLWithPath: pathString)
             print(url)

@@ -11,7 +11,7 @@ class Game {
 
     var onStateUpdate: StateUpdateBlock?
 
-    init(inputs:[String:SensorInput], outputs:[String:Output], onStateUpdate:StateUpdateBlock?) {
+    init(gameFile:String, inputs:[String:SensorInput], outputs:[String:Output], onStateUpdate:StateUpdateBlock?) {
         self.inputs = Array(inputs.values)
         self.outputs = Array(outputs.values)
         self.onStateUpdate = onStateUpdate
@@ -47,7 +47,7 @@ class Game {
 
         context.evaluateScript(gameString)
 
-        let jsonPath = NSBundle.mainBundle().pathForResource("data", ofType: "json");
+        let jsonPath = NSBundle.mainBundle().pathForResource(gameFile, ofType: "json", inDirectory: "examples");
         var json = ""
         do {
             json = try String(contentsOfFile: jsonPath!)

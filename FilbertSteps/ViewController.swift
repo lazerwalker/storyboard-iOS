@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let projectName = "elevator"
+
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayback)
@@ -36,7 +38,7 @@ class ViewController: UIViewController {
 
         let outputs:[String:Output] = [
             "speech": TextToSpeechOutput(),
-            "mp3": AudioOutput()
+            "mp3": AudioOutput(project: projectName)
         ]
 
         let onStateUpdate:StateUpdateBlock = { state in
@@ -46,7 +48,7 @@ class ViewController: UIViewController {
             }
         }
 
-        let game = Game(inputs: inputs, outputs: outputs, onStateUpdate: onStateUpdate)
+        let game = Game(gameFile: projectName, inputs: inputs, outputs: outputs, onStateUpdate: onStateUpdate)
         self.game = game
         game.start()
     }
