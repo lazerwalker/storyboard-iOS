@@ -25,7 +25,8 @@ class ViewController: UIViewController {
 
         playButton = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "start")
         restartButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "restart")
-        navigationItem.rightBarButtonItem = playButton
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showGamePicker")
 
         loadProject("elevator")
     }
@@ -67,6 +68,8 @@ class ViewController: UIViewController {
         self.game?.stop()
         let game = Game(gameFile: projectName, inputs: inputs, outputs: outputs, onStateUpdate: onStateUpdate)
         self.game = game
+
+        navigationItem.rightBarButtonItem = playButton
     }
 
     func start() {
@@ -81,6 +84,23 @@ class ViewController: UIViewController {
             loadProject(name)
             start()
         }
+    }
+
+    func showGamePicker() {
+        let paths = NSBundle.mainBundle()
+            .pathsForResourcesOfType("json", inDirectory: "examples")
+            .flatMap { $0.componentsSeparatedByString("/").last }
+            .flatMap { $0.componentsSeparatedByString(".").first }
+
+        let vc = ProjectListViewController(projects: paths) { project in
+            if let project = project {
+                self.loadProject(project)
+            }
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+
+        let nav = UINavigationController(rootViewController: vc)
+        self.presentViewController(nav, animated: true, completion: nil)
     }
 }
 
