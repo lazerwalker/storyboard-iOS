@@ -15,11 +15,19 @@ class ViewController: UIViewController {
     var game:Game?
     var activePassageId:String?
 
+    var projectName:String?
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadProject("elevator")
+    }
 
-        let projectName = "elevator"
+    //- 
 
+    func loadProject(projectName:String) {
+        self.projectName = projectName
+        self.title = projectName
+        
         let audioSession = AVAudioSession.sharedInstance()
         do {
             try audioSession.setCategory(AVAudioSessionCategoryPlayback)
