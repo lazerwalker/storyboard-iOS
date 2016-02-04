@@ -11,3 +11,8 @@ This is not yet really intended for use by anyone other than myself. That being 
 * Specifically, it expects two things: a compiled `../dist.js` file, and a `../examples` folder containing projects. Any projects that exist there (with a `.json` file and optionally a folder of media assets with the same name as the JSON file) will show up if you hit the Search icon in-app.
 
 Knock yourself out.
+
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file in this repository for more information.
