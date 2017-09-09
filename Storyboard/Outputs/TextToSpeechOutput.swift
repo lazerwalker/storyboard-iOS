@@ -14,21 +14,21 @@ class TextToSpeechOutput : NSObject, Output, AVSpeechSynthesizerDelegate {
         synthesizer.delegate = self
     }
 
-    func play(content: String, completionHandler: OutputCompletionBlock) {
+    func play(_ content: String, completionHandler: @escaping OutputCompletionBlock) {
         self.completionHandler = completionHandler
 
         let utterance = AVSpeechUtterance(string: content)
-        self.synthesizer.speakUtterance(utterance)
+        self.synthesizer.speak(utterance)
     }
 
     func stop() {
-        self.synthesizer.stopSpeakingAtBoundary(.Immediate)
+        self.synthesizer.stopSpeaking(at: .immediate)
     }
 
     //-
     // AVSpeechSynthesizerDelegate
 
-    dynamic func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+    dynamic func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         if let cb = completionHandler {
             cb()
         }

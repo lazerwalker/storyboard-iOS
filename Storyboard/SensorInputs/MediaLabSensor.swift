@@ -2,6 +2,8 @@ import Foundation
 import CoreLocation
 
 class MediaLabSensor : NSObject, SensorInput, CLLocationManagerDelegate {
+    internal var onChange: SensorInputBlock?
+
     let manager = CLLocationManager()
     let mediaLab = CLLocation(latitude: 42.3608, longitude: -71.0877)
 
@@ -11,12 +13,12 @@ class MediaLabSensor : NSObject, SensorInput, CLLocationManagerDelegate {
         super.init()
 
         manager.delegate = self
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
+        if CLLocationManager.authorizationStatus() == .notDetermined {
             manager.requestWhenInUseAuthorization()
         }
     }
 
-    func onChange(cb: SensorInputBlock) {
+    func onChange(_ cb: @escaping SensorInputBlock) {
         callback = cb
 
         if let location = manager.location {
@@ -24,23 +26,23 @@ class MediaLabSensor : NSObject, SensorInput, CLLocationManagerDelegate {
         }
     }
 
-    func testLocation(location:CLLocation) {
-        let val = (location.distanceFromLocation(mediaLab) < 100)
+    func testLocation(_ location:CLLocation) {
+        let val = (location.distance(from: mediaLab) < 100)
         if let cb = callback {
-            cb(val)
+            cb(val as AnyObject)
         }
     }
 
     // -
     // CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager,
-        didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        if status == .AuthorizedWhenInUse {
+    func locationManager(_ manager: CLLocationManager,
+        didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
             manager.startUpdatingLocation()
         }
     }
 
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.last {
             testLocation(location)
         }

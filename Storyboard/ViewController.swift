@@ -15,17 +15,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        playButton = UIBarButtonItem(barButtonSystemItem: .Play, target: self, action: "start")
-        restartButton = UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: "restart")
+        playButton = UIBarButtonItem(barButtonSystemItem: .play, target: self, action: #selector(ViewController.start))
+        restartButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(ViewController.restart))
 
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "showGamePicker")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(ViewController.showGamePicker))
 
         loadProject("elevator")
     }
 
     //- 
 
-    func loadProject(projectName:String) {
+    func loadProject(_ projectName:String) {
         self.projectName = projectName
         self.title = projectName
         
@@ -79,20 +79,20 @@ class ViewController: UIViewController {
     }
 
     func showGamePicker() {
-        let paths = NSBundle.mainBundle()
-            .pathsForResourcesOfType("json", inDirectory: "examples")
-            .flatMap { $0.componentsSeparatedByString("/").last }
-            .flatMap { $0.componentsSeparatedByString(".").first }
+        let paths = Bundle.main
+            .paths(forResourcesOfType: "json", inDirectory: "examples")
+            .flatMap { $0.components(separatedBy: "/").last }
+            .flatMap { $0.components(separatedBy: ".").first }
 
         let vc = ProjectListViewController(projects: paths) { project in
             if let project = project {
                 self.loadProject(project)
             }
-            self.dismissViewControllerAnimated(true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
         }
 
         let nav = UINavigationController(rootViewController: vc)
-        self.presentViewController(nav, animated: true, completion: nil)
+        self.present(nav, animated: true, completion: nil)
     }
 }
 

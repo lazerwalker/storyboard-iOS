@@ -154,6 +154,7 @@
 				TargetAttributes = {
 					C6A7020B1C31D32F0055C7F9 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0820;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -330,6 +331,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.FilbertSteps;
 				PRODUCT_NAME = Storyboard;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -341,6 +343,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.FilbertSteps;
 				PRODUCT_NAME = Storyboard;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

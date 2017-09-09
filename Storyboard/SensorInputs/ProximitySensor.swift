@@ -2,18 +2,18 @@ import Foundation
 import UIKit
 
 class ProximitySensor: NSObject, SensorInput {
-    private var device = UIDevice.currentDevice()
+    fileprivate var device = UIDevice.current
 
-    let threshold:NSTimeInterval
+    let threshold:TimeInterval
 
-    var timer = NSTimer();
+    var timer = Timer();
 
     var previousState = false
     var hasTriggered = false
     var callback:((AnyObject) -> Void)?
-    var startTime:NSDate = NSDate()
+    var startTime:Date = Date()
 
-    init(threshold:NSTimeInterval = 2) {
+    init(threshold:TimeInterval = 2) {
         self.threshold = threshold
 
         super.init()
@@ -25,24 +25,24 @@ class ProximitySensor: NSObject, SensorInput {
     }
 
     func startMonitoringProximity() {
-        device.proximityMonitoringEnabled = true
+        device.isProximityMonitoringEnabled = true
 
-        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: "checkProximity", userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ProximitySensor.checkProximity), userInfo: nil, repeats: true)
     }
 
     func stopMonitoringProximity() {
-        device.proximityMonitoringEnabled = false
+        device.isProximityMonitoringEnabled = false
         timer.invalidate()
     }
 
-    func onChange(cb:SensorInputBlock) {
+    func onChange(_ cb:@escaping SensorInputBlock) {
         callback = cb
 
         if (device.proximityState) {
-            cb(true)
+            cb(true as AnyObject)
             self.previousState = true
         } else {
-            cb(false)
+            cb(false as AnyObject)
         }
         checkProximity()
     }
@@ -52,16 +52,16 @@ class ProximitySensor: NSObject, SensorInput {
     func checkProximity() {
         let currentState = device.proximityState
         if(currentState && !previousState) {
-            startTime = NSDate()
+            startTime = Date()
             hasTriggered = false
         } else if (currentState && previousState && !hasTriggered && abs(startTime.timeIntervalSinceNow) >= threshold) {
             hasTriggered = true
             if let cb = callback {
-                cb(currentState)
+                cb(currentState as AnyObject)
             }
         } else if (!currentState && previousState) {
             if let cb = callback {
-                cb(currentState)
+                cb(currentState as AnyObject)
             }
         }
         previousState = device.proximityState;

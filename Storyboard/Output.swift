@@ -10,7 +10,7 @@ protocol Output {
      * completed: A callback to call when the output is finished
      * TODO: It should probably take in a success boolean and/or error object
     */
-    func play(content:String, completionHandler:OutputCompletionBlock)
+    func play(_ content:String, completionHandler:OutputCompletionBlock)
 
     func stop()
 }

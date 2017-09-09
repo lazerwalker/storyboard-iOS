@@ -7,21 +7,21 @@ class HeadphoneSensor: SensorInput {
     var callback:SensorInputBlock?
 
     init() {
-        NSNotificationCenter.defaultCenter().addObserver(
+        NotificationCenter.default.addObserver(
             self,
-            selector: "audioRouteChangeListener:",
-            name: AVAudioSessionRouteChangeNotification,
+            selector: #selector(HeadphoneSensor.audioRouteChangeListener(_:)),
+            name: NSNotification.Name.AVAudioSessionRouteChange,
             object: nil)
 
         checkOutputs()
     }
 
-    func onChange(cb:SensorInputBlock) {
+    func onChange(_ cb:@escaping SensorInputBlock) {
         callback = cb
         checkOutputs()
     }
 
-    private func checkOutputs() {
+    fileprivate func checkOutputs() {
         let outputs = session.currentRoute.outputs
 
         // TODO: Should I be allowing 
@@ -32,7 +32,7 @@ class HeadphoneSensor: SensorInput {
         }
     }
 
-    dynamic private func audioRouteChangeListener(notification:NSNotification) {
+    dynamic fileprivate func audioRouteChangeListener(_ notification:Notification) {
         checkOutputs()
     }
 }

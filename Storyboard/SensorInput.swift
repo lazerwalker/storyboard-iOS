@@ -9,5 +9,5 @@ protocol SensorInput {
      * By convention, your implementation of onChange should immediately call
      * the passed callback with the current/initial value of your sensor.
      */
-    func onChange(cb:SensorInputBlock)
+    var onChange:SensorInputBlock? { get set }
 }

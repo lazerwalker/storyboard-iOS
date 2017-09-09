@@ -2,26 +2,28 @@ import Foundation
 import UIKit
 
 struct DeviceSensor : SensorInput {
-    private var device = UIDevice.currentDevice()
+    internal var onChange: SensorInputBlock?
 
-    func onChange(cb:SensorInputBlock) {
-        cb(device.modelName)
+    fileprivate var device = UIDevice.current
+
+    func onChange(_ cb:SensorInputBlock) {
+        cb(device.modelName as AnyObject)
     }
 
     func deviceColor() {
         var selector:Selector = "deviceInfoForKey:"
-        if (!device.respondsToSelector(selector)) {
+        if (!device.responds(to: selector)) {
             selector = "_deviceInfoForKey:"
         }
 
-        if (!device.respondsToSelector(selector)) {
+        if (!device.responds(to: selector)) {
             return
         }
 
         print("Model name: \(device.modelName)")
 
         // See https://docs.google.com/spreadsheets/d/1yFjZvtNaV7cYOB_hRDjgPiNgQDZtMzaLAUhfxv449ZA/edit#gid=0
-        print("Color:", device.performSelector("_deviceInfoForKey:", withObject: "DeviceColor"))
-        print("Enclosure color:", device.performSelector("_deviceInfoForKey:", withObject: "DeviceEnclosureColor"))
+        print("Color:", device.perform("_deviceInfoForKey:", with: "DeviceColor"))
+        print("Enclosure color:", device.perform("_deviceInfoForKey:", with: "DeviceEnclosureColor"))
     }
 }

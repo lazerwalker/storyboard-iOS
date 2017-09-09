@@ -16,16 +16,16 @@ class AudioOutput : NSObject, Output, AVAudioPlayerDelegate {
         super.init()
     }
 
-    func play(content: String, completionHandler: OutputCompletionBlock) {
+    func play(_ content: String, completionHandler: @escaping OutputCompletionBlock) {
         self.completionHandler = completionHandler
 
-        let pathString = NSBundle.mainBundle().pathForResource(content, ofType: "mp3", inDirectory: "examples/\(project)")
+        let pathString = Bundle.main.path(forResource: content, ofType: "mp3", inDirectory: "examples/\(project)")
 
         if let pathString = pathString {
-            let url = NSURL(fileURLWithPath: pathString)
+            let url = URL(fileURLWithPath: pathString)
             print(url)
             do {
-                let player = try AVAudioPlayer(contentsOfURL: url)
+                let player = try AVAudioPlayer(contentsOf: url)
                 player.delegate = self
                 player.prepareToPlay()
                 player.play()
@@ -43,15 +43,15 @@ class AudioOutput : NSObject, Output, AVAudioPlayerDelegate {
 
     // -
     // AVAudioPlayerDelegate
-    dynamic func audioPlayerDecodeErrorDidOccur(player: AVAudioPlayer, error: NSError?) {
+    dynamic func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
         print("Decode error \(error)")
     }
 
-    dynamic func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
+    dynamic func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         print("Finished playing file")
         if let cb = completionHandler {
             cb()
         }
-        audioPlayers.removeAtIndex(audioPlayers.indexOf(player)!)
+        audioPlayers.remove(at: audioPlayers.index(of: player)!)
     }
 }

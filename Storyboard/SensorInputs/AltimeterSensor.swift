@@ -4,20 +4,20 @@ import CoreMotion
 class AltimeterSensor : SensorInput {
     let altimeter = CMAltimeter()
 
-    var callback:SensorInputBlock?
+    var onChange:SensorInputBlock? {
+        didSet {
+
+        }
+    }
 
     init() {
         // TODO: Manually manage a queue?
-        if let queue = NSOperationQueue.currentQueue() {
-            altimeter.startRelativeAltitudeUpdatesToQueue(queue) { (altitudeData, error) -> Void in
-                if let data = altitudeData, cb = self.callback {
+        if let queue = OperationQueue.current {
+            altimeter.startRelativeAltitudeUpdates(to: queue) { (altitudeData, error) -> Void in
+                if let data = altitudeData, let cb = self.onChange {
                     cb(data.relativeAltitude)
                 }
             }
         }
-    }
-
-    func onChange(cb: SensorInputBlock) {
-        callback = cb
     }
 }
