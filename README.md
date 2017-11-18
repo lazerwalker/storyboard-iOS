@@ -7,11 +7,15 @@ This is the reference client for the [Storyboard](https://github.com/lazerwalker
 
 This is not yet really intended for use by anyone other than myself. That being said:
 
-* This currently expects to exist as a submodule to Storyboard itself. Set this up by cloning Storyboard and running `git submodule init --update`
-* Specifically, it expects two things: a compiled `../dist.js` file, and a `../examples` folder containing projects. Any projects that exist there (with a `.json` file and optionally a folder of media assets with the same name as the JSON file) will show up if you hit the Search icon in-app.
+* This expects a compiled version of storyboard. Until that exists on npm, you'll have to provide that itself. Compile it (see the README in the proper readme) and bring in `bundle.js`.
+* Right now, it's hardcoded to read a single `elevator.story` file included.
 
 Knock yourself out.
 
+
+## Future plans
+
+When this is a bit more mature, I plan to offer a standalone library that wraps Storyboard in a  native iOS interface. It's likely I may also offer a set of standard input/output widgets, taken from projects such as this one (e.g. text-to-speech output using Apple's APIs). Stay tuned!
 
 ## License
 
