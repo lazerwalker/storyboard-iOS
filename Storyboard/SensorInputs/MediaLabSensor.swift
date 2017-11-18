@@ -2,8 +2,6 @@ import Foundation
 import CoreLocation
 
 class MediaLabSensor : NSObject, SensorInput, CLLocationManagerDelegate {
-    internal var onChange: SensorInputBlock?
-
     let manager = CLLocationManager()
     let mediaLab = CLLocation(latitude: 42.3608, longitude: -71.0877)
 
@@ -29,7 +27,7 @@ class MediaLabSensor : NSObject, SensorInput, CLLocationManagerDelegate {
     func testLocation(_ location:CLLocation) {
         let val = (location.distance(from: mediaLab) < 100)
         if let cb = callback {
-            cb(val as AnyObject)
+            cb(val)
         }
     }
 

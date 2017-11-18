@@ -6,7 +6,7 @@ struct DeviceSensor : SensorInput {
 
     fileprivate var device = UIDevice.current
 
-    func onChange(_ cb:SensorInputBlock) {
+    func onChange(_ cb: @escaping SensorInputBlock) {
         cb(device.modelName as AnyObject)
     }
 

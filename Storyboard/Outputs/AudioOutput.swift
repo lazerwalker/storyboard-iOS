@@ -4,7 +4,6 @@ import AVFoundation
 // TODO: This shouldn't need to be an NSObject
 // but for now it's the easiest way to stop Swift from complaining about noncompliance with NSObjectProtocol
 class AudioOutput : NSObject, Output, AVAudioPlayerDelegate {
-
     var audioPlayers:[AVAudioPlayer] =  []
 
     var completionHandler:OutputCompletionBlock?

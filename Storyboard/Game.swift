@@ -27,6 +27,7 @@ class Game {
         }
 
         let stateUpdated: @convention(block) (String) -> Void = { state in
+            print("State updated", state)
             if let cb = self.onStateUpdate {
                 cb(state as String)
             }
@@ -36,36 +37,34 @@ class Game {
         context?.setObject(unsafeBitCast(setTimeout, to: AnyObject.self), forKeyedSubscript: "setTimeout" as (NSCopying & NSObjectProtocol)!)
         context?.setObject(unsafeBitCast(stateUpdated, to: AnyObject.self), forKeyedSubscript: "stateUpdated" as (NSCopying & NSObjectProtocol)!)
 
-        let path = Bundle.main.path(forResource: "dist", ofType: "js")
+        let path = Bundle.main.path(forResource: "bundle", ofType: "js")
         var gameString = ""
         do {
             gameString = try String(contentsOfFile: path!)
         }
         catch let error as NSError {
-            error.description
+            print("ERROR: \(error.description)")
         }
 
-        context?.evaluateScript(gameString)
-
-        let jsonPath = Bundle.main.path(forResource: gameFile, ofType: "json", inDirectory: "examples");
+        _ = context?.evaluateScript(gameString)
+        let jsonPath = Bundle.main.path(forResource: gameFile, ofType: "story");
         var json = ""
         do {
             json = try String(contentsOfFile: jsonPath!)
         } catch let error as NSError {
-            error.description
+            print("ERROR: \(error.description)")
         }
 
-        context?.setObject(json, forKeyedSubscript: "json" as (NSCopying & NSObjectProtocol)!)
-        context?.evaluateScript("var data = JSON.parse(json)")
-        context?.evaluateScript("var game = new Game(data)")
+        context?.setObject(json, forKeyedSubscript: ("story" as NSString))
+        _ = context?.evaluateScript("var game = new storyboard.Game(story)")
 
-        context?.evaluateScript("game.stateListener = stateUpdated")
+        _ = context?.evaluateScript("game.stateListener = stateUpdated")
         inputs.forEach({ addInput($0, sensor: $1) })
         outputs.forEach({ addOutput($0, output: $1) })
     }
 
     func start() {
-        context?.evaluateScript("game.start()")
+        _ = context?.evaluateScript("game.start()")
     }
 
     func stop() {
@@ -74,7 +73,7 @@ class Game {
 
     func completePassage(_ passageId:String) {
         context?.setObject(passageId, forKeyedSubscript: "passageId" as (NSCopying & NSObjectProtocol)!)
-        context?.evaluateScript("game.completePassage(passageId)")
+        _ = context?.evaluateScript("game.completePassage(passageId)")
     }
 
     //-
@@ -90,15 +89,15 @@ class Game {
 
         context?.setObject(type, forKeyedSubscript: "type" as (NSCopying & NSObjectProtocol)!);
         context?.setObject(unsafeBitCast(fn, to: AnyObject.self), forKeyedSubscript: "fn" as (NSCopying & NSObjectProtocol)!);
-        context?.evaluateScript("game.addOutput(type, fn)");
+        _ = context?.evaluateScript("game.addOutput(type, fn)");
     }
 
     fileprivate func addInput(_ type:String, sensor:SensorInput) {
-        sensor.onChange = { (value) -> Void in
+        sensor.onChange() { (value) in
             print("INPUT: \(type): \"\(value)\"")
-            self.context.setObject(value, forKeyedSubscript: "input")
-            self.context.setObject(type, forKeyedSubscript: "sensor")
-            self.context.evaluateScript("game.receiveInput(sensor, input)")
+            self.context?.setObject(value, forKeyedSubscript: ("input" as NSString))
+            self.context?.setObject(type, forKeyedSubscript: ("sensor" as NSString))
+            _ = self.context?.evaluateScript("game.receiveInput(sensor, input)")
         }
     }
 
