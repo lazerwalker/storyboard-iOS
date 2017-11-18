@@ -49,7 +49,7 @@ class ProximitySensor: NSObject, SensorInput {
     
     //-
 
-    func checkProximity() {
+    @objc func checkProximity() {
         let currentState = device.proximityState
         if(currentState && !previousState) {
             startTime = Date()

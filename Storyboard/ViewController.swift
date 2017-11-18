@@ -64,21 +64,21 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = playButton
     }
 
-    func start() {
+    @objc func start() {
         if let game = game {
             game.start()
             navigationItem.rightBarButtonItem = restartButton
         }
     }
 
-    func restart() {
+    @objc func restart() {
         if let name = projectName {
             loadProject(name)
             start()
         }
     }
 
-    func showGamePicker() {
+    @objc func showGamePicker() {
         let paths = Bundle.main
             .paths(forResourcesOfType: "json", inDirectory: "examples")
             .flatMap { $0.components(separatedBy: "/").last }

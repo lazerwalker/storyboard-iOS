@@ -32,7 +32,7 @@ class HeadphoneSensor: SensorInput {
         }
     }
 
-    dynamic fileprivate func audioRouteChangeListener(_ notification:Notification) {
+    @objc dynamic fileprivate func audioRouteChangeListener(_ notification:Notification) {
         checkOutputs()
     }
 }

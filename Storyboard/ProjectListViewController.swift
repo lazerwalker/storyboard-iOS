@@ -24,7 +24,7 @@ class ProjectListViewController : UITableViewController {
 
     //-
 
-    func cancel() {
+    @objc func cancel() {
         self.handler(nil)
     }
 

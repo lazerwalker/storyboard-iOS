@@ -43,7 +43,7 @@ class AudioOutput : NSObject, Output, AVAudioPlayerDelegate {
     // -
     // AVAudioPlayerDelegate
     dynamic func audioPlayerDecodeErrorDidOccur(_ player: AVAudioPlayer, error: Error?) {
-        print("Decode error \(error)")
+        print("Decode error \(String(describing: error))")
     }
 
     dynamic func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
