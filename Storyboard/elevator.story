@@ -14,7 +14,7 @@ start: check_location
             put your {device} in your pocket or your handbag. Don't worry,
             I'll wait for you."
 
-    [unless headphones]
+    [if headphones is false and proximity is false]
         speech: "I need you to put on headphones, and then put your {device}
             in your pocket or handbag. Don't worry, I'll wait for you."
 

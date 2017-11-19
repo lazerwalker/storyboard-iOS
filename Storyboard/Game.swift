@@ -27,7 +27,6 @@ class Game {
         }
 
         let stateUpdated: @convention(block) (String) -> Void = { state in
-            print("State updated", state)
             if let cb = self.onStateUpdate {
                 cb(state as String)
             }

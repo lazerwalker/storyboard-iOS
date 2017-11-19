@@ -24,9 +24,12 @@ class HeadphoneSensor: SensorInput {
     fileprivate func checkOutputs() {
         let outputs = session.currentRoute.outputs
 
-        // TODO: Should I be allowing 
-        // [AVAudioSessionPortBluetoothLE, AVAudioSessionPortBluetoothA2DP, AVAudioSessionPortLineOut]?
-        let headphones = outputs.filter({ $0.portType == AVAudioSessionPortHeadphones })
+        // TODO: Do lightning EarPods work as expected?
+        let headphones = outputs.filter({
+            $0.portType == AVAudioSessionPortHeadphones ||
+            $0.portType == AVAudioSessionPortBluetoothHFP ||
+            $0.portType == AVAudioSessionPortBluetoothA2DP
+        })
         if let cb = callback {
             cb(headphones.count > 0)
         }
