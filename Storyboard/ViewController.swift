@@ -58,7 +58,16 @@ class ViewController: UIViewController {
         }
 
         self.game?.stop()
-        let game = Game(gameFile: projectName, inputs: inputs, outputs: outputs, onStateUpdate: onStateUpdate)
+
+        let storyPath = Bundle.main.path(forResource: projectName, ofType: "story");
+        var story = ""
+        do {
+            story = try String(contentsOfFile: storyPath!)
+        } catch let error as NSError {
+            print("ERROR: \(error.description)")
+        }
+
+        let game = Game(story: story, inputs: inputs, outputs: outputs, onStateUpdate: onStateUpdate)
         self.game = game
 
         navigationItem.rightBarButtonItem = playButton
