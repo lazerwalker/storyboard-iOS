@@ -10,7 +10,7 @@
 		C61B23FD1C35C50C00C820BC /* DeviceSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B23FC1C35C50C00C820BC /* DeviceSensor.swift */; };
 		C61B23FF1C35C88200C820BC /* UIDeviceHardware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */; };
 		C61B24011C38BF7D00C820BC /* HeadphoneSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */; };
-		C61B24031C38C66C00C820BC /* SensorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24021C38C66B00C820BC /* SensorInput.swift */; };
+		C61B24031C38C66C00C820BC /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24021C38C66B00C820BC /* Input.swift */; };
 		C61B24061C38E27400C820BC /* AltimeterSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24051C38E27400C820BC /* AltimeterSensor.swift */; };
 		C61B24121C3D918700C820BC /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24111C3D918700C820BC /* Output.swift */; };
 		C61B24141C3D98BF00C820BC /* TextToSpeechOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24131C3D98BF00C820BC /* TextToSpeechOutput.swift */; };
@@ -32,7 +32,7 @@
 		C61B23FC1C35C50C00C820BC /* DeviceSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceSensor.swift; sourceTree = "<group>"; };
 		C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceHardware.swift; sourceTree = "<group>"; };
 		C61B24001C38BF7D00C820BC /* HeadphoneSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadphoneSensor.swift; sourceTree = "<group>"; };
-		C61B24021C38C66B00C820BC /* SensorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorInput.swift; sourceTree = "<group>"; };
+		C61B24021C38C66B00C820BC /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		C61B24051C38E27400C820BC /* AltimeterSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AltimeterSensor.swift; sourceTree = "<group>"; };
 		C61B24111C3D918700C820BC /* Output.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Output.swift; sourceTree = "<group>"; };
 		C61B24131C3D98BF00C820BC /* TextToSpeechOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextToSpeechOutput.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 				C6A702131C31D32F0055C7F9 /* Main.storyboard */,
 				C61B24111C3D918700C820BC /* Output.swift */,
 				C61C74DA1C5EB51200F6862F /* ProjectListViewController.swift */,
-				C61B24021C38C66B00C820BC /* SensorInput.swift */,
+				C61B24021C38C66B00C820BC /* Input.swift */,
 				C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */,
 				C6A702111C31D32F0055C7F9 /* ViewController.swift */,
 				C66085DE1FC0D66000294617 /* bundle.js */,
@@ -214,7 +214,7 @@
 				C61B24161C3D9A2900C820BC /* AudioOutput.swift in Sources */,
 				C61B24141C3D98BF00C820BC /* TextToSpeechOutput.swift in Sources */,
 				C61B24011C38BF7D00C820BC /* HeadphoneSensor.swift in Sources */,
-				C61B24031C38C66C00C820BC /* SensorInput.swift in Sources */,
+				C61B24031C38C66C00C820BC /* Input.swift in Sources */,
 				C632DF511C347031005A33BF /* ProximitySensor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

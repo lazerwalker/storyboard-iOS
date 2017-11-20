@@ -1,13 +1,13 @@
 import Foundation
 
-typealias SensorInputBlock = (Any) -> Void
+typealias InputBlock = (Any) -> Void
 
-protocol SensorInput {
-    /* As a SensorInput, you should store the passed-in callback
+protocol Input {
+    /* As an Input, you should store the passed-in InputBlock
      * and call it whenever your data changes.
      *
      * By convention, your implementation of onChange should immediately call
      * the passed callback with the current/initial value of your sensor.
      */
-    func onChange(_: @escaping SensorInputBlock)
+    func onChange(_: @escaping InputBlock)
 }

@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             print("Error initializing audio session")
         }
 
-        let inputs:[String:SensorInput] = [
+        let inputs:[String:Input] = [
             "proximity": ProximitySensor(threshold: 2),
             "headphones": HeadphoneSensor(),
             "altitude": AltimeterSensor(),

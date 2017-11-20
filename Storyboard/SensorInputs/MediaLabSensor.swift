@@ -1,11 +1,11 @@
 import Foundation
 import CoreLocation
 
-class MediaLabSensor : NSObject, SensorInput, CLLocationManagerDelegate {
+class MediaLabSensor : NSObject, Input, CLLocationManagerDelegate {
     let manager = CLLocationManager()
     let mediaLab = CLLocation(latitude: 42.3608, longitude: -71.0877)
 
-    var callback:SensorInputBlock?
+    var callback:InputBlock?
 
     override init() {
         super.init()
@@ -16,7 +16,7 @@ class MediaLabSensor : NSObject, SensorInput, CLLocationManagerDelegate {
         }
     }
 
-    func onChange(_ cb: @escaping SensorInputBlock) {
+    func onChange(_ cb: @escaping InputBlock) {
         callback = cb
 
         if let location = manager.location {

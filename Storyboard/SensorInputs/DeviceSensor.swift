@@ -1,12 +1,12 @@
 import Foundation
 import UIKit
 
-struct DeviceSensor : SensorInput {
-    internal var onChange: SensorInputBlock?
+struct DeviceSensor : Input {
+    internal var onChange: InputBlock?
 
     fileprivate var device = UIDevice.current
 
-    func onChange(_ cb: @escaping SensorInputBlock) {
+    func onChange(_ cb: @escaping InputBlock) {
         cb(device.modelName as AnyObject)
     }
 

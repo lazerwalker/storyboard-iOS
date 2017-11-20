@@ -1,13 +1,13 @@
 import Foundation
 import CoreMotion
 
-class AltimeterSensor : SensorInput {
+class AltimeterSensor : Input {
     let altimeter = CMAltimeter()
     var lastData: CMAltitudeData?
 
-    var onChange:SensorInputBlock?
+    var onChange:InputBlock?
 
-    func onChange(_ block: @escaping SensorInputBlock) {
+    func onChange(_ block: @escaping InputBlock) {
         onChange = block
         if let data = lastData {
             block(data)

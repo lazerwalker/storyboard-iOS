@@ -6,12 +6,12 @@ typealias StateUpdateBlock = (String) -> Void
 class Game {
     fileprivate let context = JSContext()
 
-    let inputs:[SensorInput]
+    let inputs:[Input]
     let outputs:[Output]
 
     var onStateUpdate: StateUpdateBlock?
 
-    init(story:String, inputs:[String:SensorInput], outputs:[String:Output], onStateUpdate:StateUpdateBlock?) {
+    init(story:String, inputs:[String:Input], outputs:[String:Output], onStateUpdate:StateUpdateBlock?) {
         self.inputs = Array(inputs.values)
         self.outputs = Array(outputs.values)
         self.onStateUpdate = onStateUpdate
@@ -91,7 +91,7 @@ class Game {
         _ = context?.evaluateScript("game.addOutput(type, fn)");
     }
 
-    fileprivate func addInput(_ type:String, sensor:SensorInput) {
+    fileprivate func addInput(_ type:String, sensor:Input) {
         sensor.onChange() { (value) in
             print("INPUT: \(type): \"\(value)\"")
             self.context?.setObject(value, forKeyedSubscript: "input" as NSString)
