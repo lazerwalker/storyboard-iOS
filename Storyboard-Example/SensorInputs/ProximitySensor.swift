@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import Storyboard
 
 class ProximitySensor: NSObject, Input {
     fileprivate var device = UIDevice.current

@@ -1,8 +1,8 @@
 import Foundation
 
-typealias InputBlock = (Any) -> Void
+public typealias InputBlock = (Any) -> Void
 
-protocol Input {
+public protocol Input {
     /* As an Input, you should store the passed-in InputBlock
      * and call it whenever your data changes.
      *

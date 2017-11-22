@@ -1,8 +1,8 @@
 import Foundation
 
-typealias OutputCompletionBlock = () -> Void
+public typealias OutputCompletionBlock = () -> Void
 
-protocol Output {
+public protocol Output {
     /**
      * content: The string of actual output content
      * (this might represent e.g. the name of an audio filename to play)

@@ -1,17 +1,17 @@
 import Foundation
 import JavaScriptCore
 
-typealias StateUpdateBlock = (String) -> Void
+public typealias StateUpdateBlock = (String) -> Void
 
-class Game {
+public class Game {
     fileprivate let context = JSContext()
 
-    let inputs:[Input]
-    let outputs:[Output]
+    public let inputs:[Input]
+    public let outputs:[Output]
 
-    var onStateUpdate: StateUpdateBlock?
+    public var onStateUpdate: StateUpdateBlock?
 
-    init(story:String, inputs:[String:Input], outputs:[String:Output], onStateUpdate:StateUpdateBlock?) {
+    public init(story:String, inputs:[String:Input], outputs:[String:Output], onStateUpdate:StateUpdateBlock?) {
         self.inputs = Array(inputs.values)
         self.outputs = Array(outputs.values)
         self.onStateUpdate = onStateUpdate
@@ -47,15 +47,15 @@ class Game {
         _ = context?.evaluateScript("game.stateListener = stateUpdated")
     }
 
-    func start() {
+    public func start() {
         _ = context?.evaluateScript("game.start()")
     }
 
-    func stop() {
+    public func stop() {
         self.outputs.forEach { $0.stop() }
     }
 
-    func completePassage(_ passageId:String) {
+    public func completePassage(_ passageId:String) {
         context?.setObject(passageId, forKeyedSubscript: "passageId" as (NSCopying & NSObjectProtocol)!)
         _ = context?.evaluateScript("game.completePassage(passageId)")
     }
