@@ -1,16 +1,18 @@
 # Storyboard-iOS
 
-This is the reference client for the [Storyboard](https://github.com/lazerwalker/storyboard.git) multilinear storytelling engine. Just like Storyboard itself, this is considered pre-alpha software and is not documented at all.
+This is an iOS wrapper for the [Storyboard](https://github.com/lazerwalker/storyboard.git) multilinear storytelling engine. Just like Storyboard itself, this is considered alpha software. It isn't yet reasonably expected that anyone who isn't me will be able to use this.
 
 
 ## Setup and Usage
 
-This is not yet really intended for use by anyone other than myself. That being said:
+This contains an Xcode project which itself contains two targets:
 
-* This expects a compiled version of storyboard. Until that exists on npm, you'll have to provide that itself. Compile it (see the README in the proper readme) and bring in `bundle.js`.
-* Right now, it's hardcoded to read a single `elevator.story` file included.
+* A framework (`Storyboard`) that wraps the Storyboard runtime engine in a native Swift API
+* An example project (`Storyboard-Example`) that shows how to wire up a Storyboard `.story` file with a few native Swift inputs and outputs
 
-Knock yourself out.
+Currently, the version of the JS Storyboard engine is hardcoded to pull from a different location on my hard drive and isn't actually included in this repo. In order for this to actually work, you'll need to follow the setup instructions for the [Storyboard](https://github.com/lazerwalker/storyboard.git) repo, build Storyboard, and manually copy the generated `bundle.js` file into this project (as part of the `Storyboard` target).
+
+Eventually, this'll be available on both CocoaPods and Carthage, with a prebaked copy of `bundle.js`, but it's not quite mature enough for that yet.
 
 
 ## Future plans
