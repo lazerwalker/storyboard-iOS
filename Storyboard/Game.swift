@@ -19,7 +19,7 @@ public class Game {
         setupJSEnvironment()
 
         // Load engine
-        let path = Bundle.main.path(forResource: "bundle", ofType: "js")
+        let path = Bundle(for: Game.self).path(forResource: "bundle", ofType: "js")
         var bundle = ""
         do {
             bundle = try String(contentsOfFile: path!)

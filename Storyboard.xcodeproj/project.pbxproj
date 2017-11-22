@@ -16,13 +16,16 @@
 		C61C74DB1C5EB51200F6862F /* ProjectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61C74DA1C5EB51200F6862F /* ProjectListViewController.swift */; };
 		C62E2F7D1FC0DCC200A6882B /* elevator.story in Resources */ = {isa = PBXBuildFile; fileRef = C66085E21FC0DC4300294617 /* elevator.story */; };
 		C632DF511C347031005A33BF /* ProximitySensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C632DF501C347031005A33BF /* ProximitySensor.swift */; };
-		C66085DF1FC0D66100294617 /* bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = C66085DE1FC0D66000294617 /* bundle.js */; };
 		C66B23F71C55912A00DFC293 /* MediaLabSensor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66B23F61C55912A00DFC293 /* MediaLabSensor.swift */; };
+		C6886FED1FC50786008025D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A702181C31D32F0055C7F9 /* LaunchScreen.storyboard */; };
+		C6886FEE1FC50786008025D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A702131C31D32F0055C7F9 /* Main.storyboard */; };
+		C6886FF31FC50803008025D9 /* bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = C6CB83291FC4EF2000242F42 /* bundle.js */; };
+		C6886FF41FC5082F008025D9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6886FF01FC507A4008025D9 /* AVFoundation.framework */; };
+		C6886FF51FC5086B008025D9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6886FF21FC507B8008025D9 /* CoreLocation.framework */; };
+		C6886FF61FC50870008025D9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6886FF11FC507AD008025D9 /* CoreMotion.framework */; };
 		C6A702101C31D32F0055C7F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */; };
 		C6A702121C31D32F0055C7F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A702111C31D32F0055C7F9 /* ViewController.swift */; };
-		C6A702151C31D32F0055C7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A702131C31D32F0055C7F9 /* Main.storyboard */; };
 		C6A702171C31D32F0055C7F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6A702161C31D32F0055C7F9 /* Assets.xcassets */; };
-		C6A7021A1C31D32F0055C7F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A702181C31D32F0055C7F9 /* LaunchScreen.storyboard */; };
 		C6CB83111FC4EECB00242F42 /* Storyboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6CB83081FC4EECB00242F42 /* Storyboard.framework */; };
 		C6CB83181FC4EECB00242F42 /* StoryboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6CB83171FC4EECB00242F42 /* StoryboardTests.swift */; };
 		C6CB831A1FC4EECB00242F42 /* Storyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = C6CB830A1FC4EECB00242F42 /* Storyboard.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -31,7 +34,6 @@
 		C6CB83261FC4EF1D00242F42 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24021C38C66B00C820BC /* Input.swift */; };
 		C6CB83271FC4EF1D00242F42 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A702211C325EB90055C7F9 /* Game.swift */; };
 		C6CB83281FC4EF1D00242F42 /* Output.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61B24111C3D918700C820BC /* Output.swift */; };
-		C6CB832A1FC4EF2000242F42 /* bundle.js in Resources */ = {isa = PBXBuildFile; fileRef = C6CB83291FC4EF2000242F42 /* bundle.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,9 +85,11 @@
 		C61B24151C3D9A2900C820BC /* AudioOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioOutput.swift; sourceTree = "<group>"; };
 		C61C74DA1C5EB51200F6862F /* ProjectListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectListViewController.swift; sourceTree = "<group>"; };
 		C632DF501C347031005A33BF /* ProximitySensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProximitySensor.swift; sourceTree = "<group>"; };
-		C66085DE1FC0D66000294617 /* bundle.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = bundle.js; path = ../../storyboard/dist/bundle.js; sourceTree = "<group>"; };
 		C66085E21FC0DC4300294617 /* elevator.story */ = {isa = PBXFileReference; lastKnownFileType = text; path = elevator.story; sourceTree = "<group>"; };
 		C66B23F61C55912A00DFC293 /* MediaLabSensor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaLabSensor.swift; sourceTree = "<group>"; };
+		C6886FF01FC507A4008025D9 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C6886FF11FC507AD008025D9 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C6886FF21FC507B8008025D9 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C6A7020C1C31D32F0055C7F9 /* Storyboard-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Storyboard-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A7020F1C31D32F0055C7F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C6A702111C31D32F0055C7F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +112,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6886FF61FC50870008025D9 /* CoreMotion.framework in Frameworks */,
+				C6886FF51FC5086B008025D9 /* CoreLocation.framework in Frameworks */,
+				C6886FF41FC5082F008025D9 /* AVFoundation.framework in Frameworks */,
 				C6CB831D1FC4EECB00242F42 /* Storyboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,6 +158,16 @@
 			path = Outputs;
 			sourceTree = "<group>";
 		};
+		C6886FEF1FC507A4008025D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6886FF21FC507B8008025D9 /* CoreLocation.framework */,
+				C6886FF11FC507AD008025D9 /* CoreMotion.framework */,
+				C6886FF01FC507A4008025D9 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C6A702031C31D32F0055C7F9 = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +175,7 @@
 				C6CB83161FC4EECB00242F42 /* StoryboardTests */,
 				C6A7020D1C31D32F0055C7F9 /* Products */,
 				C6A7020E1C31D32F0055C7F9 /* Storyboard-Example */,
+				C6886FEF1FC507A4008025D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,7 +202,6 @@
 				C61C74DA1C5EB51200F6862F /* ProjectListViewController.swift */,
 				C61B23FE1C35C88200C820BC /* UIDeviceHardware.swift */,
 				C6A702111C31D32F0055C7F9 /* ViewController.swift */,
-				C66085DE1FC0D66000294617 /* bundle.js */,
 				C66085E21FC0DC4300294617 /* elevator.story */,
 			);
 			path = "Storyboard-Example";
@@ -340,11 +357,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6886FED1FC50786008025D9 /* LaunchScreen.storyboard in Resources */,
+				C6886FEE1FC50786008025D9 /* Main.storyboard in Resources */,
 				C62E2F7D1FC0DCC200A6882B /* elevator.story in Resources */,
-				C6A7021A1C31D32F0055C7F9 /* LaunchScreen.storyboard in Resources */,
 				C6A702171C31D32F0055C7F9 /* Assets.xcassets in Resources */,
-				C66085DF1FC0D66100294617 /* bundle.js in Resources */,
-				C6A702151C31D32F0055C7F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6CB832A1FC4EF2000242F42 /* bundle.js in Resources */,
+				C6886FF31FC50803008025D9 /* bundle.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,7 +565,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 48WB56AE4K;
-				INFOPLIST_FILE = Storyboard/Info.plist;
+				INFOPLIST_FILE = "Storyboard-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.FilbertSteps;
 				PRODUCT_NAME = "Storyboard-Example";
@@ -565,7 +581,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 48WB56AE4K;
-				INFOPLIST_FILE = Storyboard/Info.plist;
+				INFOPLIST_FILE = "Storyboard-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lazerwalker.FilbertSteps;
 				PRODUCT_NAME = "Storyboard-Example";
