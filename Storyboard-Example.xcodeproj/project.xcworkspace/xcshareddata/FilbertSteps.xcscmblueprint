@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "A4E3153473CD5B666925BE3F1BFEC087E77AC320",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A4E3153473CD5B666925BE3F1BFEC087E77AC320" : 0,
+    "47FCCF50B1773FE036E25D4BA960B01A910FC908" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F5E0A97C-5E1E-45CB-8273-BAFCAE97C207",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A4E3153473CD5B666925BE3F1BFEC087E77AC320" : "iOS\/",
+    "47FCCF50B1773FE036E25D4BA960B01A910FC908" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "FilbertSteps",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "FilbertSteps.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:lazerwalker\/filbert.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "47FCCF50B1773FE036E25D4BA960B01A910FC908"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:lazerwalker\/filbert-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A4E3153473CD5B666925BE3F1BFEC087E77AC320"
+    }
+  ]
+}
