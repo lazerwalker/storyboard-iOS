@@ -11,9 +11,19 @@ public class Game {
 
     public var onStateUpdate: StateUpdateBlock?
 
-    public init(story:String, inputs:[String:Input], outputs:[String:Output], onStateUpdate:StateUpdateBlock?) {
-        self.inputs = Array(inputs.values)
-        self.outputs = Array(outputs.values)
+    public init(story:String, inputs:[String:Input]?, outputs:[String:Output]?, onStateUpdate:StateUpdateBlock?) {
+        if let inputs = inputs {
+            self.inputs = Array(inputs.values)
+        } else {
+            self.inputs = []
+        }
+
+        if let outputs = outputs {
+            self.outputs = Array(outputs.values)
+        } else {
+            self.outputs = []
+        }
+
         self.onStateUpdate = onStateUpdate
 
         setupJSEnvironment()
@@ -34,15 +44,21 @@ public class Game {
         context?.setObject(story, forKeyedSubscript: ("story" as NSString))
         _ = context?.evaluateScript("var game = new storyboard.Game(story)")
 
-        // Wire up inputs/outputs and state updated block
-        inputs.forEach({ addInput($0, sensor: $1) })
-        outputs.forEach({ addOutput($0, output: $1) })
-
         let stateUpdated: @convention(block) (String) -> Void = { state in
             if let cb = self.onStateUpdate {
                 cb(state)
             }
         }
+
+
+        if let inputs = inputs {
+            inputs.forEach({ addInput($0, sensor: $1) })
+        }
+
+        if let outputs = outputs {
+            outputs.forEach({ addOutput($0, output: $1) })
+        }
+
         context?.setObject(unsafeBitCast(stateUpdated, to: AnyObject.self), forKeyedSubscript: "stateUpdated" as (NSCopying & NSObjectProtocol)!)
         _ = context?.evaluateScript("game.stateListener = stateUpdated")
     }
