@@ -76,6 +76,14 @@ public class Game {
         _ = context?.evaluateScript("game.completePassage(passageId)")
     }
 
+    public func receiveInput(_ dict: [String: Any]) {
+        dict.forEach { (type, value) in
+            self.context?.setObject(value, forKeyedSubscript: "input" as NSString)
+            self.context?.setObject(type, forKeyedSubscript: "sensor" as NSString)
+            _ = self.context?.evaluateScript("game.receiveInput(sensor, input)")
+        }
+    }
+
     //-
     fileprivate func setupJSEnvironment() {
         let log: @convention(block) (String) -> Void = { string1 in
