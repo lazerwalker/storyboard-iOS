@@ -2,16 +2,18 @@ import Foundation
 import JavaScriptCore
 
 public typealias StateUpdateBlock = (String) -> Void
+public typealias ObserverBlock = (Any?) -> Void
 
 public class Game {
     fileprivate let context = JSContext()
 
     public let inputs:[Input]
     public let outputs:[Output]
+    public let observers:[ObserverBlock]
 
     public var onStateUpdate: StateUpdateBlock?
 
-    public init(story:String, inputs:[String:Input]?, outputs:[String:Output]?, onStateUpdate:StateUpdateBlock?) {
+    public init(story:String, inputs:[String:Input]?, outputs:[String:Output]?, observers:[String:ObserverBlock]?, onStateUpdate:StateUpdateBlock?) {
         if let inputs = inputs {
             self.inputs = Array(inputs.values)
         } else {
@@ -22,6 +24,12 @@ public class Game {
             self.outputs = Array(outputs.values)
         } else {
             self.outputs = []
+        }
+        
+        if let observers = observers {
+            self.observers = Array(observers.values)
+        } else {
+            self.observers = []
         }
 
         self.onStateUpdate = onStateUpdate
@@ -57,6 +65,10 @@ public class Game {
 
         if let outputs = outputs {
             outputs.forEach({ addOutput($0, output: $1) })
+        }
+        
+        if let observers = observers {
+            observers.forEach({ addObserver($0, observer: $1) })
         }
 
         context?.setObject(unsafeBitCast(stateUpdated, to: AnyObject.self), forKeyedSubscript: "stateUpdated" as (NSCopying & NSObjectProtocol)!)
@@ -122,5 +134,19 @@ public class Game {
             self.context?.setObject(type, forKeyedSubscript: "sensor" as NSString)
             _ = self.context?.evaluateScript("game.receiveInput(sensor, input)")
         }
+    }
+    
+    fileprivate func addObserver(_ type:String, observer:@escaping ObserverBlock) {
+        context?.setObject(type, forKeyedSubscript: "type" as NSString);
+        let fn : @convention(block) (Any?) -> Void = observer
+        context?.setObject(unsafeBitCast(fn, to: AnyObject.self), forKeyedSubscript: "fn" as NSString);
+        _ = context?.evaluateScript("game.addObserver(type, fn)");
+    }
+    
+    // TODO: Will this work? Is the callback the same?
+    fileprivate func removeObserver(_ type:String, observer:ObserverBlock) {
+        context?.setObject(type, forKeyedSubscript: "type" as NSString);
+        context?.setObject(unsafeBitCast(observer, to: AnyObject.self), forKeyedSubscript: "fn" as NSString);
+        _ = context?.evaluateScript("game.removeObserver(type, fn)");
     }
 }
