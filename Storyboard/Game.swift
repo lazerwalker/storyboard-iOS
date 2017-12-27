@@ -96,6 +96,12 @@ public class Game {
         }
     }
 
+    public func receiveMomentaryInput(_ key: String, _ value: Any = true) {
+        self.context?.setObject(value, forKeyedSubscript: "input" as NSString)
+        self.context?.setObject(key, forKeyedSubscript: "sensor" as NSString)
+        _ = self.context?.evaluateScript("game.receiveMomentaryInput(sensor, input)")
+    }
+
     //-
     fileprivate func setupJSEnvironment() {
         let log: @convention(block) (String) -> Void = { string1 in
@@ -113,13 +119,13 @@ public class Game {
     }
 
     fileprivate func addOutput(_ type:String, output:Output) {
-        let fn : @convention(block) (String, String) -> Void = { content, passageId in
+        let fn : @convention(block) (String, String, String) -> Void = { content, passageId, track in
             let callback = {
                 print("Completed \(type) passage \(passageId)")
                 self.completePassage(passageId)
             }
-            print("OUTPUT: (\(type)): \"\(content)\", \(passageId)")
-            output.play(content, completionHandler:callback)
+            print("OUTPUT: (\(type)): \"\(content)\", \(track), \(passageId)")
+            output.play(content, track: track, completionHandler:callback)
         }
 
         context?.setObject(type, forKeyedSubscript: "type" as NSString);
