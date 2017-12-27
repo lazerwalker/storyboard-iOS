@@ -13,6 +13,10 @@ public class Game {
 
     public var onStateUpdate: StateUpdateBlock?
 
+    public subscript(key: String) -> JSValue? {
+        return self.context?.evaluateScript("game.state[\"\(key)\"]")
+    }
+
     public init(story:String, inputs:[String:Input]?, outputs:[String:Output]?, observers:[String:ObserverBlock]?, onStateUpdate:StateUpdateBlock?) {
         if let inputs = inputs {
             self.inputs = Array(inputs.values)
